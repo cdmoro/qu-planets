@@ -12,9 +12,12 @@ const App: FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 App">
       <div className="py-20 font-bold text-center text-yellow-300 header">
-        <div className="text-opening">
-          <h1 className="text-7xl">STAR WARS</h1>
-          <h2 className="text-2xl">planets showcase</h2>
+        <div className="flex justify-center header--text-opening">
+          <div className="w-2/3 header--text-wrapper">
+            <h1 className="text-2xl">QU CHALLENGE I</h1>
+            <h1 className="text-7xl">STAR WARS</h1>
+            <h2 className="text-2xl text-justify">It is a period of civil wars. Rebel spaceships, striking from a hidden base</h2>
+          </div>
         </div>
       </div>
       <div className="container mx-auto">

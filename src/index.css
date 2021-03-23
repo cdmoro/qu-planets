@@ -26,3 +26,11 @@ code {
 .btn:disabled {
   @apply bg-gray-500
 }
+
+.header--text-opening {
+  perspective: 84px;
+}
+
+.header--text-wrapper {
+  transform: rotateX(20deg);
+}
