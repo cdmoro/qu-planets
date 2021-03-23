@@ -1,7 +1,7 @@
 interface IResponse<T> {
     count: int,
-    next?: string,
-    previous?: string,
+    next: string | null,
+    previous: string | null,
     results: T[],
 }
 
