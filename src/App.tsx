@@ -30,7 +30,7 @@ const App: FC = () => {
         { loading
           ? "Loading"
           : <div className="flex flex-wrap justify-center planets-container">
-              { data.results.map((planet: IPlanet) => (
+              { data?.results.map((planet: IPlanet) => (
                 <div className="w-full sm:w-2/4 md:w-3/12 planet-card-wrapper" key={planet.name} >
                   <PlanetCard planet={planet} />
                 </div>
