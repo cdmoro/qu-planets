@@ -6,7 +6,7 @@ import { IResponse } from "./definitions/IResponse"
 import { useLocalStorage } from "./hooks/useLocalStorage"
 
 const App: FC = () => {
-  const [url, setUrl] = useLocalStorage("url", "https://swapi.dev/api/planets?page=1")
+  const [url, setUrl] = useLocalStorage("url", "https://swapi.dev/api/planets?page=1&format=json")
   const [data, loading] = useFetch<IResponse<IPlanet>>(url);
 
   return (
