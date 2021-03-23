@@ -10,33 +10,47 @@ const App: FC = () => {
   const [data, loading] = useFetch<IResponse<IPlanet>>(url);
 
   return (
-    <div className="min-h-screen bg-gray-600 App">
+    <div className="min-h-screen bg-gray-900 App">
+      <div className="py-20 font-bold text-center text-yellow-300 header">
+        <div className="text-opening">
+          <h1 className="text-7xl">STAR WARS</h1>
+          <h2 className="text-2xl">planets showcase</h2>
+        </div>
+      </div>
       <div className="container mx-auto">
-        <div className="flex justify-center space-x-3">
+        <div className="flex content-center justify-center space-x-3">
           <button
+            className="btn btn-blue"
             onClick={() => setUrl(data.previous as string)}
             disabled={loading || data?.previous === null}
           >
             Previous page
           </button>
-          <div>Page: {url.substr(-1)}</div>
+          <div className="flex items-center text-gray-900 bg-white">
+            Page: {url.substr(-1)}
+          </div>
           <button
+            className="btn btn-blue"
             onClick={() => setUrl(data.next as string)}
             disabled={loading || data?.next === null}
           >
             Next page
           </button>
         </div>
-        { loading
-          ? "Loading"
-          : <div className="flex flex-wrap justify-center planets-container">
-              { data?.results.map((planet: IPlanet) => (
-                <div className="w-full sm:w-2/4 md:w-3/12 planet-card-wrapper" key={planet.name} >
-                  <PlanetCard planet={planet} />
-                </div>
-              ))}
-            </div>
-        }
+        {loading ? (
+          "Loading"
+        ) : (
+          <div className="flex flex-wrap justify-center planets-container">
+            {data?.results.map((planet: IPlanet) => (
+              <div
+                className="w-full sm:w-2/4 md:w-3/12 planet-card-wrapper"
+                key={planet.name}
+              >
+                <PlanetCard planet={planet} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       {/* <table>
         <tbody>
