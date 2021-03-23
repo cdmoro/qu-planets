@@ -4,22 +4,15 @@ import PlanetCard from "./components/PlanetCard"
 import { useFetch } from "./hooks/useFetch"
 import { IResponse } from "./definitions/IResponse"
 import { useLocalStorage } from "./hooks/useLocalStorage"
+import { Header } from "./components/Header"
 
 const App: FC = () => {
-  const [url, setUrl] = useLocalStorage("url", "https://swapi.dev/api/planets?page=1&format=json")
+  const [url, setUrl] = useLocalStorage("url", "https://swapi.dev/api/planets?page=1")
   const [data, loading] = useFetch<IResponse<IPlanet>>(url);
 
   return (
     <div className="min-h-screen bg-gray-900 App">
-      <div className="py-20 font-bold text-center text-yellow-300 header">
-        <div className="flex justify-center header--text-opening">
-          <div className="w-2/3 header--text-wrapper">
-            <h1 className="text-2xl">QU CHALLENGE I</h1>
-            <h1 className="text-7xl">STAR WARS</h1>
-            <h2 className="text-2xl text-justify">It is a period of civil wars. Rebel spaceships, striking from a hidden base</h2>
-          </div>
-        </div>
-      </div>
+      <Header />
       <div className="container mx-auto">
         <div className="flex content-center justify-center space-x-3">
           <button
@@ -41,15 +34,15 @@ const App: FC = () => {
           </button>
         </div>
         {loading ? (
-          "Loading"
+          <div className="text-center p-16 text-white text-xl">LOADING...</div>
         ) : (
           <div className="flex flex-wrap justify-center planets-container">
             {data?.results.map((planet: IPlanet) => (
               <div
-                className="w-full sm:w-2/4 md:w-3/12 planet-card-wrapper"
+                className="w-full sm:w-2/4 md:w-1/3 planet-card-wrapper"
                 key={planet.name}
               >
-                <PlanetCard planet={planet} />
+                <PlanetCard className="m-5" planet={planet} />
               </div>
             ))}
           </div>

@@ -3,13 +3,16 @@ import { IPlanet } from "../definitions/IPlanet"
 import { stringToColor } from "../utils/stringToColor"
 
 interface PlanetProps {
-  planet: IPlanet
+  className?: string,
+  planet: IPlanet,
 }
 
-const PlanetCard: FC<PlanetProps> = ({ planet }) => {
+const PlanetCard: FC<PlanetProps> = ({ className, planet }) => {
   const resolveStyle = (planetName: string): CSSProperties => {
     return {
       backgroundColor: stringToColor(planetName),
+      backgroundImage: "url('./textures/planet-1.jpg')",
+      backgroundSize: 'cover'
     }
   }
 
@@ -17,7 +20,7 @@ const PlanetCard: FC<PlanetProps> = ({ planet }) => {
     <a
       href={planet.url}
       target="_blank"
-      className="block m-5 bg-white rounded-md shadow-md card group"
+      className={(className || "") + " block bg-white rounded-md shadow-md card group"}
       rel="noreferrer"
     >
       <div className="relative flex justify-center p-6 overflow-hidden text-center bg-gradient-to-t from-blue-900 to-black h-36 rounded-t-md">
@@ -32,7 +35,7 @@ const PlanetCard: FC<PlanetProps> = ({ planet }) => {
           }}
         />
         <div
-          className="relative w-16 h-16 transition-all duration-200 rounded-full p-28 card-planet group-hover:p-8"
+          className="relative w-16 h-16 transition-all duration-200 rounded-full p-28 card-planet group-hover:p-12"
           style={resolveStyle(planet.name)}
         />
       </div>
