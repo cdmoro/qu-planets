@@ -15,14 +15,14 @@ const App: FC = () => {
         <div className="flex justify-center space-x-3">
           <button
             onClick={() => setUrl(data.previous as string)}
-            disabled={loading || data.previous === null}
+            disabled={loading || data?.previous === null}
           >
             Previous page
           </button>
           <div>Page: {url.substr(-1)}</div>
           <button
             onClick={() => setUrl(data.next as string)}
-            disabled={loading || data.next === null}
+            disabled={loading || data?.next === null}
           >
             Next page
           </button>
