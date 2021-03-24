@@ -12,8 +12,8 @@ const Home: FC = () => {
     )
     const [data, loading] = useFetch<IResponse<IPlanet>>(url)
     const [planets, setPlanets] = useState<IPlanet[]>([])
-    const [orderBy, setOrderBy] = useLocalStorage<keyof IPlanet>('order-by', 'name')
-    const [sortDesc, setSortDesc] = useLocalStorage('sort-desc', false);
+    const [orderBy, setOrderBy] = useState<keyof IPlanet>('name')
+    const [sortDesc, setSortDesc] = useState(false);
 
     useEffect(() => {
         const _planets = data?.results

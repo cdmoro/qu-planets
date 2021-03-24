@@ -6,8 +6,8 @@ const Header: FC = () => {
         <div className="flex justify-center header--text-opening">
           <div className="w-2/3 header--text-wrapper whitespace-nowrap">
             <h1 className="text-2xl">EPISODE I</h1>
-            <h1 className="text-7xl">STAR WARS</h1>
-            <h2 className="text-xl text-center">
+            <h1 className="text-5xl md:text-7xl">STAR WARS</h1>
+            <h2 className="text-center md:text-xl">
               It is a period of QU challenges.
             </h2>
           </div>
