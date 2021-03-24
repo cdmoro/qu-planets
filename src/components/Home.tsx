@@ -16,24 +16,27 @@ const Home: FC = () => {
     const [sortDesc, setSortDesc] = useLocalStorage('sort-desc', false);
 
     useEffect(() => {
-      const _planets = data?.results
+        const _planets = data?.results
 
-      
-      _planets?.sort((a, b) => {
-          if (sortDesc) {
-              return b[orderBy] < a[orderBy] ? -1 : b[orderBy] > a[orderBy] ? 1 : 0
+        _planets?.sort((a, b) => {
+            const _a = a[orderBy]
+            const _b = b[orderBy]
+            const _sort = sortDesc ? -1 : 1
+
+            if (parseInt(_a as string)) {
+                return (parseInt(_a as string) - parseInt(_b as string)) * _sort
             }
-            return a[orderBy] < b[orderBy] ? -1 : a[orderBy] > b[orderBy] ? 1 : 0
+            
+            return (_a > _b ? -1 : _a < _b ? 1 : 0) * _sort
         })
         
-        console.log(_planets, orderBy, sortDesc);
-      setPlanets(_planets)
-    }, [data, orderBy, sortDesc, planets])
+        setPlanets(_planets)
+    }, [data, orderBy, sortDesc])
 
     return (
       <div className="container mx-auto">
-        <div className="flex content-center justify-between px-5">
-          <div className="flex flex-nowrap">
+        <div className="flex flex-col-reverse items-center content-center justify-between px-5 md:flex-row">
+          <div className="flex mt-4 md:mt-0 flex-nowrap">
             <button
               className="rounded-l-md btn btn--blue"
               onClick={() => setUrl(data.previous as string)}
@@ -42,7 +45,7 @@ const Home: FC = () => {
               Previous page
             </button>
             <div className="flex items-center px-3 text-gray-900 bg-white">
-              Page: {url.substr(-1)}
+              Page {url.substr(-1)}
             </div>
             <button
               className="rounded-r-md btn btn--blue"
@@ -62,16 +65,15 @@ const Home: FC = () => {
               <option value="name">Name</option>
               <option value="diameter">Diameter</option>
               <option value="rotation_period">Rotation period</option>
-              <option value="surface_water">Surface water</option>
               <option value="population">Population</option>
             </select>
             <button className="btn btn--blue rounded-r-md" onClick={() => setSortDesc(!sortDesc)} disabled={loading}>
-                { !sortDesc ? 'Desc' : 'Asc'}
+                { sortDesc ? 'Desc' : 'Asc'}
             </button>
           </div>
         </div>
         {loading ? (
-          <div className="pt-32 h-screen text-3xl text-center text-white">LOADING...</div>
+          <div className="h-screen pt-32 text-3xl text-center text-white">LOADING...</div>
         ) : (
           <div className="flex flex-wrap justify-center planets-container">
             {planets.map((planet: IPlanet) => (
