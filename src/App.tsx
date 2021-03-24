@@ -5,7 +5,7 @@ import { Home } from "./components/Home"
 
 const App: FC = () => {
   return (
-    <div className="min-h-screen bg-gray-900 App">
+    <div className="min-h-screen bg-gradient-to-t from-black to-gray-900 App">
       <Header />
       <Home />
       {/* <table>

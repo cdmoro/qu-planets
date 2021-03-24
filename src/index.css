@@ -19,6 +19,7 @@ code {
 .btn {
   @apply px-4 py-2 font-bold;
 }
+
 .btn--blue {
   @apply text-white bg-blue-500 hover:bg-blue-700;
 }
@@ -44,4 +45,19 @@ select {
 
 .header--text-wrapper {
   transform: rotateX(20deg);
+}
+
+.card:hover .card__planet {
+  animation-name: rotation;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateZ(0deg)
+  }
+  to {
+    transform: rotateZ(360deg)
+  }
 }

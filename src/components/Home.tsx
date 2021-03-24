@@ -57,19 +57,21 @@ const Home: FC = () => {
                 className="px-3 py-2 bg-white border border-gray-300 shadow-sm rounded-l-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 value={orderBy}
                 onChange={(e) => setOrderBy(e.target.value as keyof IPlanet)}
+                disabled={loading}
             >
               <option value="name">Name</option>
               <option value="diameter">Diameter</option>
+              <option value="rotation_period">Rotation period</option>
               <option value="surface_water">Surface water</option>
               <option value="population">Population</option>
             </select>
-            <button className="btn btn--blue rounded-r-md" onClick={() => setSortDesc(!sortDesc)}>
+            <button className="btn btn--blue rounded-r-md" onClick={() => setSortDesc(!sortDesc)} disabled={loading}>
                 { !sortDesc ? 'Desc' : 'Asc'}
             </button>
           </div>
         </div>
         {loading ? (
-          <div className="p-16 text-xl text-center text-white">LOADING...</div>
+          <div className="pt-32 h-screen text-3xl text-center text-white">LOADING...</div>
         ) : (
           <div className="flex flex-wrap justify-center planets-container">
             {planets.map((planet: IPlanet) => (
