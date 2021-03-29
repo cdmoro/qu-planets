@@ -47,17 +47,22 @@ select {
   transform: rotateX(20deg);
 }
 
+.card .card__planet {
+  top: 0;
+}
+
 .card:hover .card__planet {
   animation-name: rotation;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  top: -50px;
 }
 
 @keyframes rotation {
   from {
-    transform: rotateZ(0deg)
+    transform: rotateZ(0deg) scale(.6)
   }
   to {
-    transform: rotateZ(360deg)
+    transform: rotateZ(360deg) scale(.6)
   }
 }
