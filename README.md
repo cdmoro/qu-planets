@@ -2,15 +2,15 @@
 
 ## Mobile version
 
-![Mobile version](https://i.imgur.com/K1sYzzJ.png)
+![Mobile version](https://i.imgur.com/u0LBwq0.png)
 
 ## Destkop version
 
-![Desktop version](https://i.imgur.com/zLFq5lX.png)
+![Desktop version](https://i.imgur.com/vSqeA2e.png)
 
-## Hover animations
+## Lovely hover animations!
 
-![Planet animations](https://i.imgur.com/A7gimAQ.gif)
+![Planet animations](https://i.imgur.com/TC6Mwjs.gif)
 
 ## Made with
 
