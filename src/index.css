@@ -49,6 +49,8 @@ select {
 
 .card .card__planet {
   top: 0;
+  box-shadow: 0 0 30px #4069ff;
+  border-radius: 50%;
 }
 
 .card:hover .card__planet {
